@@ -233,6 +233,8 @@ private struct ChildScrollViewInfo {
             setConcealed(newValue, animated: false)
         }
     }
+    
+    public var bottomConstraint: NSLayoutConstraint? = nil
 
     public func setConcealed(_ concealed: Bool, animated: Bool, completion: ((Bool) -> Void)? = nil) {
         _isConcealed = concealed
@@ -324,7 +326,7 @@ private struct ChildScrollViewInfo {
 
         topConstraint = self.topAnchor.constraint(equalTo: view.topAnchor, constant: self.topMargin)
         heightConstraint = self.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor, multiplier: 1, constant: -self.topSpace)
-        let bottomConstraint = self.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor)
+        bottomConstraint = self.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor)
 
         let constraints = [
             self.leadingAnchor.constraint(equalTo: view.leadingAnchor),
